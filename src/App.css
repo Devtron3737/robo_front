@@ -5,14 +5,18 @@
 body,
 html {
   font-family: 'Roboto Mono', monospace;
+  --black: #434343;
+  --green: #4ec328;
+  --light-green: #b6fe9e;
+  --pink: #eb83ec;
 }
 
 .app-container {
-  border: 5px solid red;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-content: center;
+  padding: 20px;
 }
 
 .logo-container {
@@ -22,29 +26,115 @@ html {
 }
 
 .logo-container .robots {
-  color: lightslategrey;
+  color: var(--black);
 }
 
 .logo-container .love {
-  color: pink;
+  color: var(--pink);
 }
 
 .logo-container .period {
-  color: black;
+  color: var(--black);
 }
 
 .logo-container .to {
-  color: greenyellow;
+  color: var(--green);
 }
 
 .greetings {
   text-align: center;
+  font-size: xx-large;
+  margin-top: 20px;
 }
 
 .welcome {
   text-align: center;
+  font-size: large;
+  margin-top: 15px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.robot-only {
+  color: var(--green);
 }
 
 .ask {
   text-align: center;
+  font-size: large;
+  margin-top: 15px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.emojis {
+  text-align: center;
+  font-size: large;
+}
+
+.enter-button-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.enter-button {
+  cursor: pointer;
+  border: 4px solid var(--green);
+  border-radius: 30px;
+  padding: 20px;
+}
+
+.enter-button:hover {
+  background-color: var(--light-green);
+}
+
+/*  ! ! ! ! ! ! !PROFILE PAGE!!!!!!! */
+
+.name-age-container {
+  margin-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-weight: 900;
+}
+
+.details-container {
+  margin-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.about-me-text-container {
+  margin-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-weight: 900;
+}
+
+.about-me-container {
+  margin-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.next-button-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.next-button-subcontainer {
+  width: 200px;
+}
+
+.next-button {
+  text-align: center;
+  cursor: pointer;
+  border: 4px solid var(--green);
+  border-radius: 30px;
+  padding: 20px;
+}
+
+.next-button:hover {
+  background-color: var(--light-green);
 }
