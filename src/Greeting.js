@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import './App.css'
 
-function Greeting({ handleClick }) {
+function Greeting({ handleEnter }) {
     // const [items, setItems] = useState([]);
     // const [items, setProfiles] = useState([]);
 
@@ -19,7 +19,7 @@ function Greeting({ handleClick }) {
             </div>
             <div className='emojis'>🤖❤️🤖</div>
             <div className="enter-button-container">
-                <div className='enter-button' onClick={handleClick}>
+                <div className='enter-button' onClick={handleEnter}>
                     I promise I'm not human.
                 </div>
             </div>

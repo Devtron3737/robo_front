@@ -1,52 +1,59 @@
 import React, {useState, useEffect} from 'react'
 import Greeting from './Greeting';
+import Profile from './Profile';
 
 import './App.css'
 
-import { parse } from '@vanillaes/csv';
-// import * as fs from 'fs';
-// import fs from 'fs'
 import roboProfCsv from './robo_profs.csv'
 import Papa from 'papaparse';
 
 function App() {
-    const [items, setItems] = useState([]);
-    // const [items, setProfiles] = useState([]);
-
-    console.log("hiiii")
+    const [profiles, setProfiles] = useState([]);
+    const [atHomescreen, setAtHomescreen] = useState(false);
+    const [atProfile, setAtProfile] = useState(0);
 
     useEffect(() => {
-        // fs.readFile('robo_profs.csv', 'utf8', function (err, data) {
-        console.log("!!!data");
-        console.log(roboProfCsv);
-
         Papa.parse(roboProfCsv, {
             download: true,
             complete: function (input) {
                 const records = input.data;
-                console.log("!!!PARSED data");
-                console.log(records);
+                setProfiles(records)
             }
         });
+    }, [])
 
-        // const parsed = parse(roboProfCsv)
-        // console.log("THIS IS PARSED")
-        // console.log(parsed);
-        // });
-    })
-
-    function handleClick(e) {
-        console.log("errrooo")
+    function handleEnter(e) {
+        setAtHomescreen(true)
     }
 
-    return (
-        <div className="app-container">
-            <div className="logo-container">
-                <span className="robots">Robotsneed</span><span className="love">love</span><span className="period">.</span><span className="to">to</span>
+    function handleNext(e) {
+        setAtProfile(atProfile + 1)
+    }
+
+    function handleBack(e) {
+        setAtProfile(atProfile - 1)
+    }
+
+
+    if (atHomescreen === false) {
+        return (
+            <div className="app-container">
+                <div className="logo-container">
+                    <span className="robots">Robotsneed</span><span className="love">love</span><span className="period">.</span><span className="to">to</span>
+                </div>
+                <Greeting handleEnter={handleEnter} />
             </div>
-            <Greeting handleClick={handleClick}/>
-        </div>
-    );
+        );
+    } else {
+        return (
+            <div className="app-container">
+                <div className="logo-container">
+                    <span className="robots">Robotsneed</span><span className="love">love</span><span className="period">.</span><span className="to">to</span>
+                </div>
+                <Profile handleNext={handleNext} handleBack={handleBack} profile={profiles[atProfile]} />
+            </div>
+        );
+    }
 }
 
 export default App;
