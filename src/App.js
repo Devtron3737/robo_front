@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
+import Greeting from './Greeting';
 
 import './App.css'
+
 import { parse } from '@vanillaes/csv';
 // import * as fs from 'fs';
 // import fs from 'fs'
@@ -9,6 +11,7 @@ import Papa from 'papaparse';
 
 function App() {
     const [items, setItems] = useState([]);
+    // const [items, setProfiles] = useState([]);
 
     console.log("hiiii")
 
@@ -32,8 +35,16 @@ function App() {
         // });
     })
 
+    function handleClick(e) {
+        console.log("errrooo")
+    }
+
     return (
-        <div className="App">
+        <div className="app-container">
+            <div className="logo-container">
+                <span className="robots">Robotsneed</span><span className="love">love</span><span className="period">.</span><span className="to">to</span>
+            </div>
+            <Greeting handleClick={handleClick}/>
         </div>
     );
 }
