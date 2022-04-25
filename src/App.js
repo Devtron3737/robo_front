@@ -17,7 +17,8 @@ function App() {
             download: true,
             complete: function (input) {
                 const records = input.data;
-                setProfiles(records)
+                const shuffled = records.sort(() => .5 - Math.random());
+                setProfiles(shuffled)
             }
         });
     }, [])
